@@ -9,7 +9,7 @@
           <Key>
             <PropertyRef Name="AddressId" />
           </Key>
-          <Property Name="AddressId" Type="int" Nullable="false" />
+          <Property Name="AddressId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="AddressLine1" Type="nchar" MaxLength="10" Nullable="false" />
           <Property Name="AddressLine2" Type="nchar" MaxLength="10" />
           <Property Name="City" Type="varchar" MaxLength="50" Nullable="false" />
@@ -21,33 +21,76 @@
           <Key>
             <PropertyRef Name="CustomerId" />
           </Key>
-          <Property Name="CustomerId" Type="int" Nullable="false" />
-          <Property Name="NameStyle" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Title" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CustomerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameStyle" Type="varchar" MaxLength="50" />
+          <Property Name="Title" Type="varchar" MaxLength="50" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" />
           <Property Name="MiddleName" Type="varchar" MaxLength="50" />
-          <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" />
           <Property Name="Suffix" Type="varchar" MaxLength="50" />
           <Property Name="CompanyName" Type="varchar" MaxLength="50" />
           <Property Name="SalesPerson" Type="varchar" MaxLength="50" />
-          <Property Name="EmailAddress" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="EmailAddress" Type="varchar" MaxLength="100" />
           <Property Name="Phone" Type="varchar" MaxLength="11" />
-          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\BRANDON\DESKTOP\300794094\300794094(KOO)ASS#4\ASSIGNMENT4\ASSIGNMENT4\USERLOGIN.MDF.dbo.CustomerAddress' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="CustomerAddress">
           <Key>
             <PropertyRef Name="CustomerId" />
+            <PropertyRef Name="AddressId" />
           </Key>
           <Property Name="CustomerId" Type="int" Nullable="false" />
-          <Property Name="AddressId" Type="int" />
+          <Property Name="AddressId" Type="int" Nullable="false" />
           <Property Name="AddressType" Type="varchar" MaxLength="50" />
           <Property Name="rowguid" Type="varchar" MaxLength="50" />
           <Property Name="ModifiedDate" Type="varchar" MaxLength="50" />
         </EntityType>
+        <Association Name="FK__CustomerA__Addre__403A8C7D">
+          <End Role="Address" Type="Self.Address" Multiplicity="1" />
+          <End Role="CustomerAddress" Type="Self.CustomerAddress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Address">
+              <PropertyRef Name="AddressId" />
+            </Principal>
+            <Dependent Role="CustomerAddress">
+              <PropertyRef Name="AddressId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CustomerA__Custo__412EB0B6">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="CustomerAddress" Type="Self.CustomerAddress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="CustomerAddress">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="UserLoginModelStoreContainer">
           <EntitySet Name="Address" EntityType="Self.Address" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="CustomerAddress" EntityType="Self.CustomerAddress" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CustomerAddress" EntityType="Self.CustomerAddress" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CustomerAddress].[CustomerId] AS [CustomerId], 
+    [CustomerAddress].[AddressId] AS [AddressId], 
+    [CustomerAddress].[AddressType] AS [AddressType], 
+    [CustomerAddress].[rowguid] AS [rowguid], 
+    [CustomerAddress].[ModifiedDate] AS [ModifiedDate]
+    FROM [dbo].[CustomerAddress] AS [CustomerAddress]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__CustomerA__Addre__403A8C7D" Association="Self.FK__CustomerA__Addre__403A8C7D">
+            <End Role="Address" EntitySet="Address" />
+            <End Role="CustomerAddress" EntitySet="CustomerAddress" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CustomerA__Custo__412EB0B6" Association="Self.FK__CustomerA__Custo__412EB0B6">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="CustomerAddress" EntitySet="CustomerAddress" />
+          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
@@ -58,32 +101,32 @@
           <Key>
             <PropertyRef Name="AddressId" />
           </Key>
-          <Property Name="AddressId" Type="Int32" Nullable="false" />
+          <Property Name="AddressId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="AddressLine1" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="AddressLine2" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="StateProvince" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="CountryRegion" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="PostalCode" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="CustomerAddresses" Relationship="UserLoginModel.AddressCustomerAddress" FromRole="Address" ToRole="CustomerAddress" />
+          <NavigationProperty Name="CustomerAddresses" Relationship="Self.FK__CustomerA__Addre__403A8C7D" FromRole="Address" ToRole="CustomerAddress" />
         </EntityType>
         <EntityType Name="Customer">
           <Key>
             <PropertyRef Name="CustomerId" />
           </Key>
-          <Property Name="CustomerId" Type="Int32" Nullable="false" />
-          <Property Name="NameStyle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CustomerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameStyle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="MiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Suffix" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="CompanyName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="SalesPerson" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="EmailAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EmailAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Phone" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
-          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="CustomerAddresses" Relationship="UserLoginModel.CustomerCustomerAddress" FromRole="Customer" ToRole="CustomerAddress" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CustomerAddresses" Relationship="Self.FK__CustomerA__Custo__412EB0B6" FromRole="Customer" ToRole="CustomerAddress" />
         </EntityType>
         <EntityType Name="CustomerAddress">
           <Key>
@@ -95,54 +138,52 @@
           <Property Name="AddressType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="rowguid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="ModifiedDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Address" Relationship="UserLoginModel.AddressCustomerAddress" FromRole="CustomerAddress" ToRole="Address" />
-          <Property Name="AddressAddressId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Customer" Relationship="UserLoginModel.CustomerCustomerAddress" FromRole="CustomerAddress" ToRole="Customer" />
-          <Property Name="CustomerCustomerId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Address" Relationship="Self.FK__CustomerA__Addre__403A8C7D" FromRole="CustomerAddress" ToRole="Address" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK__CustomerA__Custo__412EB0B6" FromRole="CustomerAddress" ToRole="Customer" />
         </EntityType>
-        <EntityContainer Name="UserLoginModels" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Addresses" EntityType="Self.Address" />
-          <EntitySet Name="Customers" EntityType="Self.Customer" />
-          <EntitySet Name="CustomerAddresses" EntityType="Self.CustomerAddress" />
-          <AssociationSet Name="AddressCustomerAddress" Association="UserLoginModel.AddressCustomerAddress">
-            <End Role="Address" EntitySet="Addresses" />
-            <End Role="CustomerAddress" EntitySet="CustomerAddresses" />
-          </AssociationSet>
-          <AssociationSet Name="CustomerCustomerAddress" Association="UserLoginModel.CustomerCustomerAddress">
-            <End Role="Customer" EntitySet="Customers" />
-            <End Role="CustomerAddress" EntitySet="CustomerAddresses" />
-          </AssociationSet>
-        </EntityContainer>
-        <Association Name="AddressCustomerAddress">
-          <End Type="UserLoginModel.Address" Role="Address" Multiplicity="1" />
-          <End Type="UserLoginModel.CustomerAddress" Role="CustomerAddress" Multiplicity="*" />
+        <Association Name="FK__CustomerA__Addre__403A8C7D">
+          <End Role="Address" Type="Self.Address" Multiplicity="1" />
+          <End Role="CustomerAddress" Type="Self.CustomerAddress" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Address">
               <PropertyRef Name="AddressId" />
             </Principal>
             <Dependent Role="CustomerAddress">
-              <PropertyRef Name="AddressAddressId" />
+              <PropertyRef Name="AddressId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="CustomerCustomerAddress">
-          <End Type="UserLoginModel.Customer" Role="Customer" Multiplicity="1" />
-          <End Type="UserLoginModel.CustomerAddress" Role="CustomerAddress" Multiplicity="*" />
+        <Association Name="FK__CustomerA__Custo__412EB0B6">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="CustomerAddress" Type="Self.CustomerAddress" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Customer">
               <PropertyRef Name="CustomerId" />
             </Principal>
             <Dependent Role="CustomerAddress">
-              <PropertyRef Name="CustomerCustomerId" />
+              <PropertyRef Name="CustomerId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Addresses" EntityType="Self.Address" />
+          <EntitySet Name="Customers" EntityType="Self.Customer" />
+          <EntitySet Name="CustomerAddresses" EntityType="Self.CustomerAddress" />
+          <AssociationSet Name="FK__CustomerA__Addre__403A8C7D" Association="Self.FK__CustomerA__Addre__403A8C7D">
+            <End Role="Address" EntitySet="Addresses" />
+            <End Role="CustomerAddress" EntitySet="CustomerAddresses" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CustomerA__Custo__412EB0B6" Association="Self.FK__CustomerA__Custo__412EB0B6">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="CustomerAddress" EntitySet="CustomerAddresses" />
+          </AssociationSet>
+        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="UserLoginModelStoreContainer" CdmEntityContainer="UserLoginModels">
+        <EntityContainerMapping StorageEntityContainer="UserLoginModelStoreContainer" CdmEntityContainer="Entities">
           <EntitySetMapping Name="Addresses">
             <EntityTypeMapping TypeName="UserLoginModel.Address">
               <MappingFragment StoreEntitySet="Address">

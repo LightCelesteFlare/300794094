@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\300794094\Desktop\300794094\300794094(Koo)ASS#4\Assignment4\Assignment4\UserModel.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\Brandon\Desktop\300794094\300794094(Koo)ASS#4\Assignment4\Assignment4\UsersModels.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.
