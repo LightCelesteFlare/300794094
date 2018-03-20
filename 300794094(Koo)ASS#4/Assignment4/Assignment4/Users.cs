@@ -32,7 +32,7 @@ namespace Assignment4
 
 
             //var searchText = txtSearchEmail.Text;
-            //using (UserLoginModels query = new UserLoginModels())
+            //using ( query = new UserLoginModels())
             //{
             //    var emailquery = from t in query.Customers
             //                     where t.EmailAddress == searchText

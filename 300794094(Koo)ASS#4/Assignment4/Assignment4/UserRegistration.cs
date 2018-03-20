@@ -20,25 +20,25 @@ namespace Assignment4
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            using (UserLoginModels context = new UserLoginModels())
-            {
-                Customer cust = new Customer();
-                cust.NameStyle = txtUserID.Text;
-                cust.FirstName = txtFName.Text;
-                cust.LastName = txtLName.Text;
-                cust.Phone = txtPhoneNumber.Text;
-                cust.EmailAddress = txtEmail.Text;
-                cust.Password = txtPassword.Text;
-                try { 
-                context.Customers.Add(cust);
-                }
-                catch
-                {
-                    MessageBox.Show("There is a error in adding register");
-                    return;
-                }
-                context.SaveChanges();
-            }
+            //using (UserLoginModels context = new UserLoginModels())
+            //{
+            //    Customer cust = new Customer();
+            //    cust.NameStyle = txtUserID.Text;
+            //    cust.FirstName = txtFName.Text;
+            //    cust.LastName = txtLName.Text;
+            //    cust.Phone = txtPhoneNumber.Text;
+            //    cust.EmailAddress = txtEmail.Text;
+            //    cust.Password = txtPassword.Text;
+            //    try { 
+            //    context.Customers.Add(cust);
+            //    }
+            //    catch
+            //    {
+            //        MessageBox.Show("There is a error in adding register");
+            //        return;
+            //    }
+            //    context.SaveChanges();
+            //}
 
             //string Username = "INSERT INTO CUSTOMER(NameStyle) VALUES (@text1)";
             //string FName = "INSERT INTO CUSTOMER(FirstName) VALUES (@text2)";
