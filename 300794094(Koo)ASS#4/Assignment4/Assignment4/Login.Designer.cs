@@ -89,6 +89,7 @@
             this.btnNewUser.TabIndex = 6;
             this.btnNewUser.TabStop = true;
             this.btnNewUser.Text = "New User?";
+            this.btnNewUser.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.btnNewUser_LinkClicked);
             // 
             // Login
             // 

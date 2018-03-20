@@ -21,5 +21,12 @@ namespace Assignment4
         {
 
         }
+
+        private void btnNewUser_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            UserRegistration regis = new UserRegistration();
+            regis.Show();
+            //this.Close();
+        }
     }
 }
