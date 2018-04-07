@@ -16,8 +16,9 @@ namespace Assignment4
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new Login());
-            Application.Run(new Users());
+            Application.Run(new Login());
+            //Application.Run(new UserRegistration());
+            //Application.Run(new Users());
 
         }
     }

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Collections.ObjectModel;
+using System.Data.SqlClient;
 
 namespace Assignment4
 {
@@ -31,14 +32,44 @@ namespace Assignment4
             //    cust.Password = txtPassword.Text;
             //    try { 
             //    context.Customers.Add(cust);
+            //    context.SaveChanges();
             //    }
             //    catch
             //    {
             //        MessageBox.Show("There is a error in adding register");
             //        return;
             //    }
-            //    context.SaveChanges();
-            //}
+            string str = null;
+
+            str = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Mike\Documents\300794094(Koo)ASS#4\Assignment4\Assignment4\UserLogin.mdf;Integrated Security=True";
+
+            using (SqlConnection connection = new SqlConnection(str))
+            {
+                //String query = "INSERT INTO dbo.Customer (id,NameStyle,FirstName,LastName,Phone,Password,EmailAddress,CompanyName) VALUES (@id,@username,@FN,@LN,@phone,@password,@email,@Company)";
+                String query = "INSERT INTO dbo.Customer (NameStyle,FirstName,LastName,Phone,Password,EmailAddress,CompanyName) VALUES (@username,@FN,@LN,@phone,@password,@email,@Company)";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@username", txtUserID.Text);
+                    command.Parameters.AddWithValue("@FN", txtFName.Text);
+                    command.Parameters.AddWithValue("@LN", txtLName.Text);
+                    command.Parameters.AddWithValue("@phone", txtPhoneNumber.Text);
+                    command.Parameters.AddWithValue("@password", txtPassword.Text);
+                    command.Parameters.AddWithValue("@email", txtEmail.Text);
+                    command.Parameters.AddWithValue("@Company", txtCompany.Text);
+
+                    connection.Open();
+                    
+                    int result = command.ExecuteNonQuery();
+
+                    // Check Error
+                    if (result < 0)
+                    { 
+                        Console.WriteLine("Error inserting data into Database!");
+                    }
+                    connection.Close();
+                }
+            }
 
             //string Username = "INSERT INTO CUSTOMER(NameStyle) VALUES (@text1)";
             //string FName = "INSERT INTO CUSTOMER(FirstName) VALUES (@text2)";

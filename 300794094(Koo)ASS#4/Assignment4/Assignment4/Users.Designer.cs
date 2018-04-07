@@ -50,35 +50,44 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.customerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameStyleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.titleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.middleNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.suffixDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.companyNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.salesPersonDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customerBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.userLoginDataSet = new Assignment4.UserLoginDataSet();
+            this.customerBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.customerBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.userLoginDataSet1 = new Assignment4.UserLoginDataSet1();
+            this.customerTableAdapter = new Assignment4.UserLoginDataSetTableAdapters.CustomerTableAdapter();
+            this.userLoginDataSet2 = new Assignment4.UserLoginDataSet2();
+            this.customerBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
+            this.customerTableAdapter1 = new Assignment4.UserLoginDataSet2TableAdapters.CustomerTableAdapter();
+            this.nameStyleDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customerAddressesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customerBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.customerAddressBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.companyNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).BeginInit();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userLoginDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.customerAddressBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userLoginDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userLoginDataSet2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource3)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -136,7 +145,7 @@
             this.tabControl1.Location = new System.Drawing.Point(7, 4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(660, 188);
+            this.tabControl1.Size = new System.Drawing.Size(855, 188);
             this.tabControl1.TabIndex = 16;
             // 
             // tabPage1
@@ -156,7 +165,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(652, 162);
+            this.tabPage1.Size = new System.Drawing.Size(847, 162);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -263,7 +272,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(652, 162);
+            this.tabPage2.Size = new System.Drawing.Size(847, 162);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -273,11 +282,16 @@
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn7});
-            this.dataGridView1.DataSource = this.customerBindingSource1;
+            this.nameStyleDataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6,
+            this.companyNameDataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewTextBoxColumn8});
+            this.dataGridView1.DataSource = this.customerBindingSource3;
             this.dataGridView1.Location = new System.Drawing.Point(1, 3);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(645, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(871, 150);
             this.dataGridView1.TabIndex = 0;
             // 
             // tabPage3
@@ -286,7 +300,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(652, 162);
+            this.tabPage3.Size = new System.Drawing.Size(847, 162);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "tabPage3";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -296,30 +310,18 @@
             this.dataGridView2.AutoGenerateColumns = false;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
             this.nameStyleDataGridViewTextBoxColumn,
             this.titleDataGridViewTextBoxColumn,
+            this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
-            this.middleNameDataGridViewTextBoxColumn,
-            this.dataGridViewTextBoxColumn3,
-            this.suffixDataGridViewTextBoxColumn,
             this.companyNameDataGridViewTextBoxColumn,
-            this.salesPersonDataGridViewTextBoxColumn,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6,
-            this.customerAddressesDataGridViewTextBoxColumn});
-            this.dataGridView2.DataSource = this.customerBindingSource1;
-            this.dataGridView2.Location = new System.Drawing.Point(1, 0);
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4});
+            this.dataGridView2.DataSource = this.customerBindingSource2;
+            this.dataGridView2.Location = new System.Drawing.Point(4, 4);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(655, 150);
+            this.dataGridView2.Size = new System.Drawing.Size(745, 150);
             this.dataGridView2.TabIndex = 0;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "CustomerId";
-            this.dataGridViewTextBoxColumn1.HeaderText = "CustomerId";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             // 
             // nameStyleDataGridViewTextBoxColumn
             // 
@@ -333,29 +335,17 @@
             this.titleDataGridViewTextBoxColumn.HeaderText = "Title";
             this.titleDataGridViewTextBoxColumn.Name = "titleDataGridViewTextBoxColumn";
             // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "FirstName";
+            this.dataGridViewTextBoxColumn1.HeaderText = "FirstName";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
             // dataGridViewTextBoxColumn2
             // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "FirstName";
-            this.dataGridViewTextBoxColumn2.HeaderText = "FirstName";
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "LastName";
+            this.dataGridViewTextBoxColumn2.HeaderText = "LastName";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // middleNameDataGridViewTextBoxColumn
-            // 
-            this.middleNameDataGridViewTextBoxColumn.DataPropertyName = "MiddleName";
-            this.middleNameDataGridViewTextBoxColumn.HeaderText = "MiddleName";
-            this.middleNameDataGridViewTextBoxColumn.Name = "middleNameDataGridViewTextBoxColumn";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "LastName";
-            this.dataGridViewTextBoxColumn3.HeaderText = "LastName";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // suffixDataGridViewTextBoxColumn
-            // 
-            this.suffixDataGridViewTextBoxColumn.DataPropertyName = "Suffix";
-            this.suffixDataGridViewTextBoxColumn.HeaderText = "Suffix";
-            this.suffixDataGridViewTextBoxColumn.Name = "suffixDataGridViewTextBoxColumn";
             // 
             // companyNameDataGridViewTextBoxColumn
             // 
@@ -363,55 +353,96 @@
             this.companyNameDataGridViewTextBoxColumn.HeaderText = "CompanyName";
             this.companyNameDataGridViewTextBoxColumn.Name = "companyNameDataGridViewTextBoxColumn";
             // 
-            // salesPersonDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn3
             // 
-            this.salesPersonDataGridViewTextBoxColumn.DataPropertyName = "SalesPerson";
-            this.salesPersonDataGridViewTextBoxColumn.HeaderText = "SalesPerson";
-            this.salesPersonDataGridViewTextBoxColumn.Name = "salesPersonDataGridViewTextBoxColumn";
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "EmailAddress";
+            this.dataGridViewTextBoxColumn3.HeaderText = "EmailAddress";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             // 
             // dataGridViewTextBoxColumn4
             // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "EmailAddress";
-            this.dataGridViewTextBoxColumn4.HeaderText = "EmailAddress";
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Password";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Password";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             // 
-            // dataGridViewTextBoxColumn5
+            // customerBindingSource2
             // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "Phone";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Phone";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.customerBindingSource2.DataMember = "Customer";
+            this.customerBindingSource2.DataSource = this.userLoginDataSet;
             // 
-            // dataGridViewTextBoxColumn6
+            // userLoginDataSet
             // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "Password";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Password";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            // 
-            // customerAddressesDataGridViewTextBoxColumn
-            // 
-            this.customerAddressesDataGridViewTextBoxColumn.DataPropertyName = "CustomerAddresses";
-            this.customerAddressesDataGridViewTextBoxColumn.HeaderText = "CustomerAddresses";
-            this.customerAddressesDataGridViewTextBoxColumn.Name = "customerAddressesDataGridViewTextBoxColumn";
+            this.userLoginDataSet.DataSetName = "UserLoginDataSet";
+            this.userLoginDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // customerBindingSource1
             // 
             this.customerBindingSource1.DataSource = typeof(Assignment4.Customer);
             // 
-            // customerAddressBindingSource
+            // userLoginDataSet1
             // 
-            this.customerAddressBindingSource.DataSource = typeof(Assignment4.CustomerAddress);
+            this.userLoginDataSet1.DataSetName = "UserLoginDataSet1";
+            this.userLoginDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // customerTableAdapter
+            // 
+            this.customerTableAdapter.ClearBeforeFill = true;
+            // 
+            // userLoginDataSet2
+            // 
+            this.userLoginDataSet2.DataSetName = "UserLoginDataSet2";
+            this.userLoginDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // customerBindingSource3
+            // 
+            this.customerBindingSource3.DataMember = "Customer";
+            this.customerBindingSource3.DataSource = this.userLoginDataSet2;
+            // 
+            // customerTableAdapter1
+            // 
+            this.customerTableAdapter1.ClearBeforeFill = true;
+            // 
+            // nameStyleDataGridViewTextBoxColumn1
+            // 
+            this.nameStyleDataGridViewTextBoxColumn1.DataPropertyName = "NameStyle";
+            this.nameStyleDataGridViewTextBoxColumn1.HeaderText = "NameStyle";
+            this.nameStyleDataGridViewTextBoxColumn1.Name = "nameStyleDataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "FirstName";
+            this.dataGridViewTextBoxColumn5.HeaderText = "FirstName";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "LastName";
+            this.dataGridViewTextBoxColumn6.HeaderText = "LastName";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            // 
+            // companyNameDataGridViewTextBoxColumn1
+            // 
+            this.companyNameDataGridViewTextBoxColumn1.DataPropertyName = "CompanyName";
+            this.companyNameDataGridViewTextBoxColumn1.HeaderText = "CompanyName";
+            this.companyNameDataGridViewTextBoxColumn1.Name = "companyNameDataGridViewTextBoxColumn1";
             // 
             // dataGridViewTextBoxColumn7
             // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "CustomerId";
-            this.dataGridViewTextBoxColumn7.HeaderText = "CustomerId";
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "EmailAddress";
+            this.dataGridViewTextBoxColumn7.HeaderText = "EmailAddress";
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "Password";
+            this.dataGridViewTextBoxColumn8.HeaderText = "Password";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             // 
             // Users
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(668, 290);
+            this.ClientSize = new System.Drawing.Size(895, 290);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.btnBrowseAllEntries);
             this.Controls.Add(this.groupBox1);
@@ -425,11 +456,15 @@
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).EndInit();
             this.tabPage3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userLoginDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.customerAddressBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userLoginDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userLoginDataSet2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -463,23 +498,28 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn emailAddressDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn phoneDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn passwordDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource customerBindingSource1;
+        private UserLoginDataSet1 userLoginDataSet1;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private UserLoginDataSet userLoginDataSet;
+        private System.Windows.Forms.BindingSource customerBindingSource2;
+        private UserLoginDataSetTableAdapters.CustomerTableAdapter customerTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameStyleDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn titleDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn middleNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn suffixDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn companyNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn salesPersonDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private UserLoginDataSet2 userLoginDataSet2;
+        private System.Windows.Forms.BindingSource customerBindingSource3;
+        private UserLoginDataSet2TableAdapters.CustomerTableAdapter customerTableAdapter1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameStyleDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn customerAddressesDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource customerBindingSource1;
-        private System.Windows.Forms.BindingSource customerAddressBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn companyNameDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
     }
 }

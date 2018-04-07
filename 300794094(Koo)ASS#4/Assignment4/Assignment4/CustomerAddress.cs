@@ -19,6 +19,8 @@ namespace Assignment4
         public string AddressType { get; set; }
         public string rowguid { get; set; }
         public string ModifiedDate { get; set; }
+        public int AddressAddressId { get; set; }
+        public int CustomerCustomerId { get; set; }
     
         public virtual Address Address { get; set; }
         public virtual Customer Customer { get; set; }

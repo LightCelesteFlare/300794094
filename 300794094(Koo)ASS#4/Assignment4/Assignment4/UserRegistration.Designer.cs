@@ -42,6 +42,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnRegister = new System.Windows.Forms.Button();
             this.btnReturn = new System.Windows.Forms.Button();
+            this.txtCompany = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtPassword
@@ -159,11 +161,29 @@
             this.btnReturn.UseVisualStyleBackColor = true;
             this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
             // 
+            // txtCompany
+            // 
+            this.txtCompany.Location = new System.Drawing.Point(102, 183);
+            this.txtCompany.Name = "txtCompany";
+            this.txtCompany.Size = new System.Drawing.Size(170, 20);
+            this.txtCompany.TabIndex = 29;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(15, 183);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(54, 13);
+            this.label7.TabIndex = 28;
+            this.label7.Text = "Company:";
+            // 
             // UserRegistration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 262);
+            this.Controls.Add(this.txtCompany);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.btnReturn);
             this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.txtPassword);
@@ -201,5 +221,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnRegister;
         private System.Windows.Forms.Button btnReturn;
+        private System.Windows.Forms.TextBox txtCompany;
+        private System.Windows.Forms.Label label7;
     }
 }
