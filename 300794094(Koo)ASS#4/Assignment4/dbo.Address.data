@@ -1,0 +1,2 @@
+﻿INSERT INTO [dbo].[Address] ([AddressId], [AddressLine1], [AddressLine2], [City], [StateProvince], [CountryRegion], [PostalCode]) VALUES (1, N'162 Green ', NULL, N'Toronto', N'Ontario', N'Canada    ', N'M1F3J9    ')
+INSERT INTO [dbo].[Address] ([AddressId], [AddressLine1], [AddressLine2], [City], [StateProvince], [CountryRegion], [PostalCode]) VALUES (2, N'81 Blue ', NULL, N'Toronto', N'Ontario', N'Canada    ', N'M6V3L2    ')
